@@ -1,3 +1,6 @@
+#For library packages, do not commit the pubspec.lock file.
+pubspec.lock
+
 # Miscellaneous
 *.class
 *.log
