@@ -5,6 +5,12 @@ void main() {
   runApp(MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-          primarySwatch: Colors.teal, accentColor: Colors.orangeAccent),
-      home: TaiperContainer([TextClayblock("test")])));
+        primarySwatch: Colors.teal,
+        accentColor: Colors.orangeAccent
+      ),
+      home: TaiperContainer([
+        TextClayblock(content: "test")
+      ]),
+    ),
+  );
 }

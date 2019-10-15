@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import './clayblock.dart';
 
 class ImageClayblock extends Clayblock {

@@ -3,20 +3,21 @@ import './clayblock.dart';
 
 class TextClayblock extends Clayblock {
   final identifier = "text";
-  final TextType type;
   
-  TextClayblock({this.type = TextType.body, this.content});
-
+  final TextClayblockType type;
   final String content;
+  
+  TextClayblock({this.type = TextClayblockType.body, this.content});
+
   @override
   Widget build(BuildContext context) {
     TextStyle style;
     
     switch (type) {
-      case TextType.body:
+      case TextClayblockType.body:
         style = Theme.of(context).textTheme.body1;
         break;
-      case TextType.title:
+      case TextClayblockType.title:
         style = Theme.of(context).textTheme.title;
     }
 
@@ -25,7 +26,6 @@ class TextClayblock extends Clayblock {
 
 }
 
-enum TextType {
+enum TextClayblockType {
   body, title
 }
-
