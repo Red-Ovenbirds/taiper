@@ -27,29 +27,29 @@ class MyHomePage extends StatelessWidget {
         child: TaiperContainer([
           TextClayblock(
             type: TextClayblockType.title,
-            content: "Olar"
+            content: "Olar",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd"
+              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd"
+              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
           ),
           TextClayblock(
             type: TextClayblockType.title,
-            content: "Olar"
+            content: "Olar",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd"
+              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
           ),
         ]),
-      )
+      ),
     );
   }
 }

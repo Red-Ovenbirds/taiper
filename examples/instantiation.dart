@@ -6,10 +6,10 @@ void main() {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        accentColor: Colors.orangeAccent
+        accentColor: Colors.orangeAccent,
       ),
       home: TaiperContainer([
-        TextClayblock(content: "test")
+        TextClayblock(content: "test"),
       ]),
     ),
   );
