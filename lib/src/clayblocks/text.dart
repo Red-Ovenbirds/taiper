@@ -7,21 +7,29 @@ class TextClayblock extends Clayblock {
   final TextClayblockType type;
   final String content;
   
-  TextClayblock({this.type = TextClayblockType.body, this.content});
+  TextClayblock({this.type = TextClayblockType.body, this.content}) {
+    switch (type) {
+      case TextClayblockType.body:
+        this.style.padding = EdgeInsets.symmetric(vertical: 4, horizontal: 16);
+        break;
+      case TextClayblockType.title:
+        this.style.padding = EdgeInsets.only(top: 16, bottom: 4, right: 16, left: 16);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style;
+    TextStyle textStyle;
     
     switch (type) {
       case TextClayblockType.body:
-        style = Theme.of(context).textTheme.body1;
+        textStyle = Theme.of(context).textTheme.body1;
         break;
       case TextClayblockType.title:
-        style = Theme.of(context).textTheme.title;
+        textStyle = Theme.of(context).textTheme.title;
     }
 
-    return Text(content, style: style);
+    return Text(content, style: textStyle);
   }
 
 }

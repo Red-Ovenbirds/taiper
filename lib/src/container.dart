@@ -10,9 +10,11 @@ class TaiperContainer extends StatelessWidget {
     return ListView.builder(
       itemCount: clayblocks.length,
 
-      itemBuilder: (context, index){
-      //TODO: change padding according to style
-      return Padding(padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16), child: clayblocks[index]);
-    });
+      itemBuilder: (context, index) {
+        var clayblock = clayblocks[index];
+        //TODO: change padding according to style
+        return Padding(padding: clayblock.style.padding, child: clayblock);
+      }
+    );
   }
 }

@@ -21,32 +21,32 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Teste"),
+        title: Text("Taiper Example"),
       ),
       body: Center(
         child: TaiperContainer([
           TextClayblock(
             type: TextClayblockType.title,
-            content: "Olar",
+            content: "Hello World. The first title.",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
+              "Example of text in body.",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
+              "A new example of text in body. More, more, more, more, more, more, more, more, more, more, more, more, more and more words to fill some lines",
           ),
           TextClayblock(
             type: TextClayblockType.title,
-            content: "Olar",
+            content: "The second title",
           ),
           TextClayblock(
             type: TextClayblockType.body,
             content:
-              "Oi som teste askdnajks dkjna sdkjnasd kjansd aksjdna dskjansdjknaskjdna sdkansd aksjdna sdkjansdjknasd asdkjnasd",
+              "A third text of body type. It's ok?",
           ),
         ]),
       ),
