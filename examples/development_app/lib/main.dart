@@ -48,6 +48,14 @@ class MyHomePage extends StatelessWidget {
             content:
               "A third text of body type. It's ok?",
           ),
+          ImageClayblock(
+            type: ImageClayblockType.local,
+            src: "assets/Red-Ovenbird.jpg",
+          ),
+          ImageClayblock(
+            type: ImageClayblockType.web,
+            src: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
+          ),
         ]),
       ),
     );
