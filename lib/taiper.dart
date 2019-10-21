@@ -28,7 +28,5 @@
 library taiper;
 
 export 'src/clayblocks/index.dart';
-
 export 'src/container.dart';
-
 export 'src/styling.dart';

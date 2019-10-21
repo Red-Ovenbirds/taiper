@@ -1,5 +1,12 @@
-import './base.dart';
+import 'package:flutter/material.dart';
+import './clayblock.dart';
 
-class ImageClayblock extends BaseClayblock {
+class ImageClayblock extends Clayblock {
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return null;
+  }
   
 }
