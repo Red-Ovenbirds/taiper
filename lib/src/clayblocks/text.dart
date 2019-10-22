@@ -42,6 +42,18 @@ class TextClayblock extends Clayblock {
   }
 }
 
+class TextClayblockFactory extends ClayblockFactory {
+
+  final typesDict = {
+    "body": TextClayblockType.body,
+    "title": TextClayblockType.title,
+    "ref": TextClayblockType.ref
+  };
+
+  Clayblock build(String data, String type) =>
+    TextClayblock(type: typesDict[type], content: data);
+} 
+
 enum TextClayblockType {
   body, title, ref
 }
