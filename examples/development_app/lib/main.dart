@@ -40,6 +40,10 @@ class MyHomePage extends StatelessWidget {
               "A new example of text in body. More, more, more, more, more, more, more, more, more, more, more, more, more and more words to fill some lines",
           ),
           TextClayblock(
+            type: TextClayblockType.ref,
+            content: "Lagrèze W 1 , diem R . [New aspects in the therapy of multiple sclerosis and optic neuritis]. Ophthalmologe. 2014 Aug;111(8):709-14. doi: 10.1007/s00347-013-2987-7.",
+          ),
+          TextClayblock(
             type: TextClayblockType.title,
             content: "The second title",
           ),
