@@ -18,42 +18,48 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
+  Widget build(BuildContext context) =>
+    Scaffold(
       appBar: AppBar(
         title: Text("Taiper Example"),
       ),
       body: Center(
-        child: TaiperContainer([
-          TextClayblock(
-            type: TextClayblockType.title,
-            content: "Hello World. The first title.",
-          ),
-          TextClayblock(
-            type: TextClayblockType.body,
-            content:
-              "Example of text in body.",
-          ),
-          TextClayblock(
-            type: TextClayblockType.body,
-            content:
-              "A new example of text in body. More, more, more, more, more, more, more, more, more, more, more, more, more and more words to fill some lines",
-          ),
-          TextClayblock(
-            type: TextClayblockType.ref,
-            content: "Lagrèze W 1 , diem R . [New aspects in the therapy of multiple sclerosis and optic neuritis]. Ophthalmologe. 2014 Aug;111(8):709-14. doi: 10.1007/s00347-013-2987-7.",
-          ),
-          TextClayblock(
-            type: TextClayblockType.title,
-            content: "The second title",
-          ),
-          TextClayblock(
-            type: TextClayblockType.body,
-            content:
-              "A third text of body type. It's ok?",
-          ),
-        ]),
-      ),
+        child: TaiperContainer(
+          TaipaBuilder().construct(exampleData)
+        )
+      )
     );
-  }
+
+  final exampleData = [
+    ClayblockData(
+      value: "Definição:",
+      type:"text/title"),
+    ClayblockData(
+      value: "A hipotensão ortostática ocorre com a mudança de posição, particularmente pela manhã ou após refeições copiosas, exercício físico e banho quente, situações que levam a uma redistribuição desfavorável do volume sangüíneo.",
+      type: "text/body"),
+    ClayblockData(
+      value: "Sinais e sintomas:",
+      type:"text/title"),
+    ClayblockData(
+      value: "Tontura\nSíncope\nQuedas\nDistúrbios visuais\nDéficits neurológicos focais\nCervicalgia com irradiação para os ombros\nclaudicação intermitente\nangina de peito\nIAM",
+      type:"text/body"),
+    ClayblockData(
+      value:"Diagnostico:",
+      type:"text/title"),
+    ClayblockData(
+      value:"O diagnóstico é clínico, estabelecido por meio de anamnese detalhada e exame físico.\nSabe-se que a queda na pressão arterial sistólica (PAS) de 20mmHg ou mais pode produzir sintomas de má perfusão cerebral.",
+      type:"text/body"),
+    ClayblockData(
+      value:"Tratamento:",
+      type:"text/title"),
+    ClayblockData(
+      value:"Suspensão de medicamentos hipotensores\nCuidados posturais e relacionados à ingestão alimentar.\nA droga de escolha é a fludrocortisona.",
+      type:"text/body"),
+    ClayblockData(
+      value:"Wanjgarten, M.; Serro-Azul, J.B.; maciel, L.G.; Management of orthostatic and postprandial hypotension. Rev Bras Hipertens vol.14(1): 29-32, 2007",
+      type:"text/ref"),
+    ClayblockData(
+      value:"Gardenghi, G.; Balestra, L.F.;FISIOPATOLOGIA DA HIPOTENSÃO POSTURAL E INTOLERÂNCIA ORTOSTÁTICA.rev pesquisa em fisioterapia. Vol.7 (1), 2017.",
+      type:"text/ref" )
+  ];
 }
