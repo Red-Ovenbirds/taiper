@@ -22,22 +22,52 @@ class TextClayblock extends Clayblock {
     }
   }
 
+  Widget buildBodyText(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.body1);
+    return Text(content, style: componentStyle.first);
+  }
+    
+
+  Widget buildTitleText(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.title);
+    return Text(content, style: componentStyle.first); 
+  }
+
+  Widget buildULItem(BuildContext context) {
+    return Row(mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children:
+        [
+          Container(
+            child: Text("•", textAlign: TextAlign.center),
+            width: Theme.of(context).textTheme.body1.fontSize,
+          ),
+          Expanded(
+            child: Text(content)
+          ),
+        ]
+      );
+  }
+    
+
   @override
   Widget build(BuildContext context) {
+    Widget w;
     switch (type) {
       case TextClayblockType.body:
-        componentStyle.add(Theme.of(context).textTheme.body1);
+        w = buildBodyText(context);
         break;
       case TextClayblockType.title:
-        componentStyle.add(Theme.of(context).textTheme.title);
+        w = buildTitleText(context);
         break;
       case TextClayblockType.ref:
-        componentStyle.add(Theme.of(context).textTheme.body2);
+        w = buildULItem(context);
+        break;
+      default: {
+        w = buildBodyText(context);
+      }
     }
-
-    final displayText = type != TextClayblockType.ref ? content : '\u2022 ' + content;
-
-    return Text(displayText, style: componentStyle[0]);
+    return w;
   }
 }
 
