@@ -21,24 +21,45 @@ class TextClayblock extends Clayblock {
     }
   }
 
+  Widget buildBodyText(BuildContext context) =>
+    Text(content, style: Theme.of(context).textTheme.body1);
+
+  Widget buildTitleText(BuildContext context) =>
+    Text(content, style: Theme.of(context).textTheme.title);
+
+  Widget buildULItem(BuildContext context) =>
+    Row(mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children:
+        [
+          Container(
+            child: Text("•", textAlign: TextAlign.center),
+            width: Theme.of(context).textTheme.body1.fontSize,
+          ),
+          Expanded(
+            child: Text(content)
+          ),
+        ]
+      );
+
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle;
-    
+    Widget w;
     switch (type) {
       case TextClayblockType.body:
-        textStyle = Theme.of(context).textTheme.body1;
+        w = buildBodyText(context);
         break;
       case TextClayblockType.title:
-        textStyle = Theme.of(context).textTheme.title;
+        w = buildTitleText(context);
         break;
       case TextClayblockType.ref:
-        textStyle = Theme.of(context).textTheme.body2;
+        w = buildULItem(context);
+        break;
+      default: {
+        w = buildBodyText(context);
+      }
     }
-
-    final displayText = type != TextClayblockType.ref ? content : '\u2022 ' + content;
-
-    return Text(displayText, style: textStyle);
+    return w;
   }
 }
 

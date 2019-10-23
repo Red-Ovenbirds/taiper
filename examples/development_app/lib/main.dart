@@ -44,7 +44,7 @@ class MyHomePage extends StatelessWidget {
       value: "Tontura\nSíncope\nQuedas\nDistúrbios visuais\nDéficits neurológicos focais\nCervicalgia com irradiação para os ombros\nclaudicação intermitente\nangina de peito\nIAM",
       type:"text/body"),
     ClayblockData(
-      value:"Gardenghi, G.; Balestra, L.F.;FISIOPATOLOGIA DA HIPOTENSÃO POSTURAL E INTOLERÂNCIA ORTOSTÁTICA.rev pesquisa em fisioterapia. Vol.7 (1), 2017.",
+      value:"xdgcfhgvjbknjlmnjkhvgycftdxcfvghjbhknlknjkhvgcftxdcfygvbhjnljbhvgycftfgyihkjj hcfyftgyhiuonjlkbhjgvhcfvhojghcfxghgvjhkjlkvjgcfhgjvhbkjvcbRow (mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [ SizedBox( width: Theme.of(context).textTheme.body1.fontSize, child: Text(, textAlign: TextAlign.center) ), Expanded( child: Text(content) ), ] )gjhklbcvgjhkugvjgvhkvgjhkvjhkivnjhkuvgjhkuvgjhkuvjhkuvgvjhkugvgchjuogjvchvjuhigjvchjuihgvjiuhgvjhuigvjjhuhgvju",
       type:"text/ref" )
   ];
 }
