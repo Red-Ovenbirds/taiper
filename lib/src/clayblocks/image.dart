@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:taiper/src/clayblocks/index.dart';
 import 'dart:async';
@@ -29,13 +30,31 @@ class _ImageStateful extends StatefulWidget {
 }
 
 class _ImageStatefulState extends State<_ImageStateful> {
+  bool _reloadIcon = false;
   Image image;
   final String src;
   final ImageClayblockType type;
 
   _ImageStatefulState({this.type, this.src});
-  
-  Future<Size> _calculateImageDimension(Image image) async {
+
+  myreload() => Center(
+        child: IconButton(
+            icon: Icon(Icons.replay),
+            onPressed: () {
+              setState( () {_reloadIcon = false;} );
+            }),
+      );
+
+  Future<Size> _calculateImageDimension() async {
+    switch (type) {
+      case ImageClayblockType.local:
+        image = Image.asset(src);
+        break;
+      case ImageClayblockType.web:
+        await InternetAddress.lookup('google.com');
+        image = Image.network(src);
+    }
+
     Completer<Size> completer = Completer();
     image.image.resolve(ImageConfiguration()).addListener(
       ImageStreamListener(
@@ -46,76 +65,69 @@ class _ImageStatefulState extends State<_ImageStateful> {
         },
       ),
     );
+
     return completer.future;
   }
 
-  @override
-  void initState() {
-    super.initState();
-        
-    switch(type) {
-      case ImageClayblockType.local:
-        image = Image.asset(src);
-        break;  
-      case ImageClayblockType.web:
-        image = Image.network(src);
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: 
-        _calculateImageDimension(image),
-      builder:
-        (context, snapshot) {
-
-          switch(snapshot.connectionState) {
+  myfuture() => FutureBuilder(
+        future: _calculateImageDimension(),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
             case ConnectionState.active:
             case ConnectionState.none:
             case ConnectionState.waiting:
-              return TextClayblock(content: "Loading image...");
+              return Center(child: CircularProgressIndicator());
             case ConnectionState.done:
-              Size size = snapshot.data;
-              double widthImage = size.width;
-              double heightImage = size.height;
-              double ratio = heightImage/widthImage;
-              double height;
+              if (snapshot.hasError) {
+                return myreload();
+              } else {
+                Size size = snapshot.data;
+                double widthImage = size.width;
+                double heightImage = size.height;
+                double ratio = heightImage / widthImage;
+                double height;
 
+                return LayoutBuilder(
+                  builder: (context, constraints) {
+                    double minConstraints =
+                        min(constraints.maxWidth, constraints.maxHeight);
+                    double minDevices = min(MediaQuery.of(context).size.width,
+                        MediaQuery.of(context).size.height);
+                    if (minDevices == MediaQuery.of(context).size.height)
+                      minDevices *= 0.75;
+                    double minDimension = min(minConstraints, minDevices);
+                    height = min(min(0.75 * minDimension, ratio * minDimension),
+                        heightImage);
 
-              return LayoutBuilder(
-                builder: (context, constraints) {
-                  double minConstraints = min(constraints.maxWidth, constraints.maxHeight);
-                  double minDevices = min(MediaQuery.of(context).size.width, MediaQuery.of(context).size.height);
-                  if(minDevices == MediaQuery.of(context).size.height)
-                    minDevices *= 0.75;
-                  double minDimension = min(minConstraints, minDevices);
-                  height = min(minDimension, ratio*minDimension);
-                  
-                  switch(type) {
-                    case ImageClayblockType.local:
-                      image = Image.asset(
-                        src,
-                        height: height,
-                        fit: BoxFit.contain,
-                      );
-                      break;  
-                    case ImageClayblockType.web:
-                      image = Image.network(
-                        src,
-                        height: height,
-                        fit: BoxFit.contain,
-                      );
-                  }
+                    switch (type) {
+                      case ImageClayblockType.local:
+                        image = Image.asset(
+                          src,
+                          height: height,
+                          fit: BoxFit.contain,
+                        );
+                        break;
+                      case ImageClayblockType.web:
+                        image = Image.network(
+                          src,
+                          height: height,
+                          fit: BoxFit.contain,
+                        );
+                    }
 
-                  return image;
-                },
-            );
+                    return image;
+                  },
+                );
+              }
           }
           return null;
-      },
-    );
+        },
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return _reloadIcon ? myreload() : myfuture();
   }
 }
 
-enum ImageClayblockType {local, web}
+enum ImageClayblockType { local, web }
