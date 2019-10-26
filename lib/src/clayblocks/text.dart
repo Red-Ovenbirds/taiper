@@ -34,6 +34,7 @@ class TextClayblock extends Clayblock {
   }
 
   Widget buildULItem(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.body1);
     return Row(mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
         children:
@@ -43,7 +44,7 @@ class TextClayblock extends Clayblock {
             width: Theme.of(context).textTheme.body1.fontSize,
           ),
           Expanded(
-            child: Text(content)
+            child: Text(content, style: componentStyle.first)
           ),
         ]
       );
