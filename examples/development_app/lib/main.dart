@@ -45,6 +45,6 @@ class MyHomePage extends StatelessWidget {
       type:"text/body"),
     ClayblockData(
       value:"xdgcfhgvjbknjlmnjkhvgycftdxcfvghjbhknlknjkhvgcftxdcfygvbhjnljbhvgycftfgyihkjj hcfyftgyhiuonjlkbhjgvhcfvhojghcfxghgvjhkjlkvjgcfhgjvhbkjvcbRow (mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [ SizedBox( width: Theme.of(context).textTheme.body1.fontSize, child: Text(, textAlign: TextAlign.center) ), Expanded( child: Text(content) ), ] )gjhklbcvgjhkugvjgvhkvgjhkvjhkivnjhkuvgjhkuvgjhkuvjhkuvgvjhkugvgchjuogjvchvjuhigjvchjuihgvjiuhgvjhuigvjjhuhgvju",
-      type:"text/ref" )
+      type:"text/ulitem" )
   ];
 }
