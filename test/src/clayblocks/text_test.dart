@@ -56,7 +56,7 @@ void main() {
   });
 
   testWidgets("TextClayblock type body", (WidgetTester tester) async {
-    final messenge = "My messenge";
+    final messenge = "My message";
     final testMessenge = "test";
     
     final bodyWidget = TextClayblock(type: TextClayblockType.body, content: messenge);
@@ -78,7 +78,7 @@ void main() {
   });
 
   testWidgets("TextClayblock type ULItem", (WidgetTester tester) async {
-    final messenge = "My messenge";
+    final messenge = "My message";
     final testMessenge = "test";
     final point = "•";
 
@@ -102,30 +102,30 @@ void main() {
   });
 
   testWidgets("Text builder for body", (WidgetTester tester) async {
-    final messenge = "My messenge";
+    final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(messenge, "text/body"));
+        TextClayblockFactory().build(message, "text/body"));
 
-    expect(find.text(messenge), findsOneWidget);
+    expect(find.text(message), findsOneWidget);
   });
 
   testWidgets("Text builder for title", (WidgetTester tester) async {
-    final messenge = "My messenge";
+    final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(messenge, "text/title"));
+        TextClayblockFactory().build(message, "text/title"));
 
-    expect(find.text(messenge), findsOneWidget);
+    expect(find.text(message), findsOneWidget);
   });
 
   testWidgets("Text builder for ulitem", (WidgetTester tester) async {
-    final messenge = "My messenge";
+    final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(messenge, "text/ulitem"));
+        TextClayblockFactory().build(message, "text/ulitem"));
 
-    expect(find.text(messenge), findsOneWidget);
+    expect(find.text(message), findsOneWidget);
   });
 
   test("ClayblockData", () {
