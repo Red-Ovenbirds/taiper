@@ -15,7 +15,7 @@ class TextClayblock extends Clayblock {
       case TextClayblockType.title:
         this.style.padding = EdgeInsets.only(top: 16, bottom: 4, right: 16, left: 16);
         break;
-      case TextClayblockType.ref:
+      case TextClayblockType.ULItem:
         this.style.padding = EdgeInsets.symmetric(vertical: 16, horizontal: 16);
         break;
     }
@@ -52,7 +52,7 @@ class TextClayblock extends Clayblock {
       case TextClayblockType.title:
         w = buildTitleText(context);
         break;
-      case TextClayblockType.ref:
+      case TextClayblockType.ULItem:
         w = buildULItem(context);
         break;
       default: {
@@ -68,7 +68,7 @@ class TextClayblockFactory extends ClayblockFactory {
   final typesDict = {
     "body": TextClayblockType.body,
     "title": TextClayblockType.title,
-    "ref": TextClayblockType.ref
+    "ulitem": TextClayblockType.ULItem
   };
 
   Clayblock build(String data, String type) =>
@@ -76,5 +76,5 @@ class TextClayblockFactory extends ClayblockFactory {
 } 
 
 enum TextClayblockType {
-  body, title, ref
+  body, title, ULItem
 }
