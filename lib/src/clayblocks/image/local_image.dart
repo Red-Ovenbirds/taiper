@@ -52,15 +52,14 @@ class LocalImageState extends State<LocalImage> {
 
             return LayoutBuilder(
               builder: (context, constraints) {
-                double minConstraints =
-                    min(constraints.maxWidth, constraints.maxHeight);
-                double minDevices = min(MediaQuery.of(context).size.width,
-                    MediaQuery.of(context).size.height);
-                if (minDevices == MediaQuery.of(context).size.height)
-                  minDevices *= 0.75;
-                double minDimension = min(minConstraints, minDevices);
-                height = min(min(0.75 * minDimension, ratio * minDimension),
-                    heightImage);
+                double parentMinHeight = min(constraints.maxWidth, constraints.maxHeight);
+                double deviceMinHeight = min( MediaQuery.of(context).size.width,
+                                              MediaQuery.of(context).size.height);
+                if (deviceMinHeight == MediaQuery.of(context).size.height)
+                  deviceMinHeight *= 0.75;
+                double maxHeightAvaliable = min(parentMinHeight, deviceMinHeight);
+                height = min( min(0.75 * maxHeightAvaliable, ratio * maxHeightAvaliable),
+                              heightImage);
 
                 return Image.asset(
                   src,

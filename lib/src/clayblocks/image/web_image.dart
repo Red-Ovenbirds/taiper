@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class WebImage extends StatefulWidget {
   final String url;
+  final String textRefresh;
 
-  WebImage(this.url);
+  WebImage(this.url, {this.textRefresh = "Tap to refresh!"});
 
   @override
   State createState() => WebImageState(url);
@@ -15,18 +16,30 @@ class WebImage extends StatefulWidget {
 class WebImageState extends State<WebImage> {
   Image image;
   final String url;
+  final String textRefresh;
 
-  WebImageState(this.url);
+  WebImageState(this.url, {this.textRefresh = "Tap to refresh image!"});
 
-  refreshButton() => Center(
-        child: IconButton(
-            icon: Icon(Icons.refresh),
-            onPressed: () {
-              setState(() {});
-            }),
-      );
+  refreshButton() => Stack(
+          children: <Widget>[
+            Center(
+              child: IconButton(
+                icon: Icon(Icons.refresh),
+                onPressed: () {
+                  setState(() {});
+                }
+              ),
+            ),
+            Center(
+              child: Padding(
+                padding: EdgeInsets.only(top:46),
+                child: Text(textRefresh),
+              )
+            ),
+          ],
+        );
   
-  processImage(Size size, ImageProvider imageProvider) {
+  showImage(Size size, ImageProvider imageProvider) {
     double widthImage = size.width;
     double heightImage = size.height;
     double ratio = heightImage / widthImage;
@@ -34,14 +47,14 @@ class WebImageState extends State<WebImage> {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        double minConstraints =
+        double parentMinHeight =
             min(constraints.maxWidth, constraints.maxHeight);
-        double minDevices = min(MediaQuery.of(context).size.width,
+        double deviceMinHeight = min(MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height);
-        if (minDevices == MediaQuery.of(context).size.height)
-          minDevices *= 0.75;
-        double minDimension = min(minConstraints, minDevices);
-        height = min(min(0.75 * minDimension, ratio * minDimension),
+        if (deviceMinHeight == MediaQuery.of(context).size.height)
+          deviceMinHeight *= 0.75;
+        double maxHeightAvaliable = min(parentMinHeight, deviceMinHeight);
+        height = min(min(0.75 * maxHeightAvaliable, ratio * maxHeightAvaliable),
             heightImage);
 
         image = Image(
@@ -86,7 +99,7 @@ class WebImageState extends State<WebImage> {
               case ConnectionState.done:
                 if (snapshot.hasError)
                   return refreshButton();
-                return processImage(snapshot.data, imageProvider);
+                return showImage(snapshot.data, imageProvider);
               default:
                 return null;
             }

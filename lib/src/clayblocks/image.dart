@@ -12,46 +12,38 @@ class ImageClayblock extends Clayblock {
   final String src;
   final ImageClayblockType type;
 
-  ImageClayblock({this.src, this.type});
+  ImageClayblock({
+    @required this.src,
+    @required this.type
+  });
+
+  imageContainer(context, image, imageProvider) => Container(
+    child: GestureDetector(
+      child: image,
+      onTap: () {
+        Navigator.push(
+          context, 
+          MaterialPageRoute(
+            builder: (context) => HeroPhotoViewWrapper(
+              imageProvider: imageProvider,
+              minScale: PhotoViewComputedScale.contained * 1,
+              maxScale: PhotoViewComputedScale.covered * 2.0,
+            ),
+          ),
+        );
+      },
+    ),
+  );
 
   @override
   Widget build(BuildContext context) {
     switch(type) {
       case ImageClayblockType.local:
-        return Container(
-          child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HeroPhotoViewWrapper(
-                        imageProvider: AssetImage(src),
-                      ),
-                    ));
-              },
-              child: Container(
-                child: LocalImage(src),
-              ),
-            ),
-        );
+        return imageContainer(context, LocalImage(src), AssetImage(src));
       case ImageClayblockType.web:
-        return Container(
-          child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => HeroPhotoViewWrapper(
-                        imageProvider:  CachedNetworkImageProvider(src),
-                      ),
-                    ));
-              },
-              child: Container(
-                  child: 
-                WebImage(src),
-              ),
-          ),
-        );
+        return imageContainer(context, WebImage(src), CachedNetworkImageProvider(src));
+      default:
+        return null;
     }
   }
 }
@@ -83,7 +75,7 @@ class HeroPhotoViewWrapper extends StatelessWidget {
         backgroundDecoration: backgroundDecoration,
         minScale: minScale,
         maxScale: maxScale,
-        heroAttributes: const PhotoViewHeroAttributes(tag: ""),
+        heroAttributes: const PhotoViewHeroAttributes(tag: "photoViewByTaiper"),
       ),
     );
   }
