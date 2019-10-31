@@ -20,25 +20,25 @@ class WebImageState extends State<WebImage> {
 
   WebImageState(this.url, {this.textRefresh = "Tap to refresh image!"});
 
-  refreshButton() => Stack(
-          children: <Widget>[
-            Center(
-              child: IconButton(
+  refreshButton() => GestureDetector(
+          child: Stack(
+        children: <Widget>[
+          Center(
+            child: IconButton(
                 icon: Icon(Icons.refresh),
                 onPressed: () {
                   setState(() {});
-                }
-              ),
-            ),
-            Center(
+                }),
+          ),
+          Center(
               child: Padding(
-                padding: EdgeInsets.only(top:46),
-                child: Text(textRefresh),
-              )
-            ),
-          ],
-        );
-  
+            padding: EdgeInsets.only(top: 46),
+            child: Text(textRefresh),
+          )),
+        ],
+      ),
+      onTap: () => null,);
+
   showImage(Size size, ImageProvider imageProvider) {
     double widthImage = size.width;
     double heightImage = size.height;
@@ -89,22 +89,21 @@ class WebImageState extends State<WebImage> {
       placeholder: (context, url) => Center(child: CircularProgressIndicator()),
       errorWidget: (context, url, error) => refreshButton(),
       imageBuilder: (context, imageProvider) => FutureBuilder(
-          future: _calculateImageDimension(imageProvider),
-          builder: (context, snapshot) {
-            switch (snapshot.connectionState) {
-              case ConnectionState.active:
-              case ConnectionState.none:
-              case ConnectionState.waiting:
-                return Center(child: CircularProgressIndicator());
-              case ConnectionState.done:
-                if (snapshot.hasError)
-                  return refreshButton();
-                return showImage(snapshot.data, imageProvider);
-              default:
-                return null;
-            }
-          },
-        ),
+        future: _calculateImageDimension(imageProvider),
+        builder: (context, snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.active:
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(child: CircularProgressIndicator());
+            case ConnectionState.done:
+              if (snapshot.hasError) return refreshButton();
+              return showImage(snapshot.data, imageProvider);
+            default:
+              return null;
+          }
+        },
+      ),
     );
   }
 }
