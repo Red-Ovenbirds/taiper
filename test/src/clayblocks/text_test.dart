@@ -72,7 +72,7 @@ void main() {
   testWidgets("TaipaBuilder", (WidgetTester tester) async {
     final type1 = "text/body";
     final value1 = "valueee";
-    final type2 = "text/title";
+    final type2 = "dsa/title";
     final value2 = "valueeeee";
 
     final cbDatas = [
@@ -87,7 +87,7 @@ void main() {
     ));
 
     expect(find.text(value1), findsNWidgets(2));
-    expect(find.text(value2), findsNWidgets(2));
+    expect(find.text(value2), findsOneWidget);
   });
 
   testWidgets("TaiperContainer", (WidgetTester tester) async {
