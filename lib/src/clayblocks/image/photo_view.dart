@@ -21,13 +21,32 @@ class HeroPhotoViewWrapper extends StatelessWidget {
       constraints: BoxConstraints.expand(
         height: MediaQuery.of(context).size.height,
       ),
-      child: PhotoView(
-        imageProvider: imageProvider,
-        loadingChild: loadingChild,
-        backgroundDecoration: backgroundDecoration,
-        minScale: minScale,
-        maxScale: maxScale,
-        heroAttributes: const PhotoViewHeroAttributes(tag: "photoViewByTaiper"),
+      child: Scaffold( 
+        body: Stack(
+          children: <Widget>[
+            PhotoView(
+              imageProvider: imageProvider,
+              loadingChild: loadingChild,
+              backgroundDecoration: backgroundDecoration,
+              minScale: minScale,
+              maxScale: maxScale,
+              heroAttributes: const PhotoViewHeroAttributes(tag: "photoViewByTaiper"),
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+              child: IconButton(
+                icon: Icon(
+                  Icons.clear,
+                  color: Colors.white,
+                  size: 25
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
