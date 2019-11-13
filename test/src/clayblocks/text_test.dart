@@ -51,7 +51,7 @@ void main() {
     ));
 
     expect(find.text(titleString), findsOneWidget);
-    expect(titleWidget.componentStyle, testWidget.styles[0]);
+    expect(titleWidget.componentStyle[0], testWidget.styles[0]);
   });
 
   testWidgets("Test of text of message type", (WidgetTester tester) async {
@@ -70,6 +70,6 @@ void main() {
         ));
 
     expect(find.text(message), findsOneWidget);
-    expect(bodyWidget.componentStyle, testWidget.styles[0]);
+    expect(bodyWidget.componentStyle[0], testWidget.styles[0]);
   });
 }
