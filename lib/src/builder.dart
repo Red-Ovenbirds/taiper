@@ -9,6 +9,11 @@ class TaipaBuilder {
   List<Clayblock> construct(List<ClayblockData> data) =>
     data.map((ClayblockData clayblockData) {
       final typeAndModifier = clayblockData.type.split("/");
-      return factories[typeAndModifier[0]].build(clayblockData.value, typeAndModifier[1]);
-    }).toList();
+
+      if(factories.keys.contains(typeAndModifier[0])){
+        return factories[typeAndModifier[0]].build(clayblockData.value, typeAndModifier[1]);
+      } else {
+        return null;
+      }
+    }).where((e) => e != null).toList();
 }
