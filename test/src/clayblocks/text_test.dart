@@ -7,13 +7,13 @@ import '../../util.dart';
 class TestTitleTextStyle extends StatelessWidget {
 
   final data;
-  var style;
+  final styles = [];
 
   TestTitleTextStyle({this.data});
 
   Widget build(BuildContext context) {
-    style = Theme.of(context).textTheme.title;
-    return Text(data, style: style);
+    styles.add(Theme.of(context).textTheme.title);
+    return Text(data, style: styles[0]);
   }  
 }
 
@@ -21,13 +21,13 @@ class TestTitleTextStyle extends StatelessWidget {
 class TestBody1TextStyle extends StatelessWidget {
 
   final data;
-  var style;
+  final styles = [];
 
   TestBody1TextStyle({this.data});
 
   Widget build(BuildContext context) {
-    style = Theme.of(context).textTheme.body1;
-    return Text(data, style: style);
+    styles.add(Theme.of(context).textTheme.body1);
+    return Text(data, style: styles[0]);
   }  
 }
 
@@ -51,7 +51,7 @@ void main() {
     ));
 
     expect(find.text(titleString), findsOneWidget);
-    expect(titleWidget.componentStyle, testWidget.style);
+    expect(titleWidget.componentStyle, testWidget.styles[0]);
   });
 
   testWidgets("Test of text of message type", (WidgetTester tester) async {
@@ -70,6 +70,6 @@ void main() {
         ));
 
     expect(find.text(message), findsOneWidget);
-    expect(bodyWidget.componentStyle, testWidget.style);
+    expect(bodyWidget.componentStyle, testWidget.styles[0]);
   });
 }
