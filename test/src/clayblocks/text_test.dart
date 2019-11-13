@@ -4,15 +4,29 @@ import 'package:flutter_test/flutter_test.dart';
 import '../../util.dart';
 
 
-class TestTextStyle extends StatelessWidget {
+class TestTitleTextStyle extends StatelessWidget {
 
   final data;
   var style;
 
-  TestTextStyle({this.data});
+  TestTitleTextStyle({this.data});
 
   Widget build(BuildContext context) {
     style = Theme.of(context).textTheme.title;
+    return Text(data, style: style);
+  }  
+}
+
+
+class TestBody1TextStyle extends StatelessWidget {
+
+  final data;
+  var style;
+
+  TestBody1TextStyle({this.data});
+
+  Widget build(BuildContext context) {
+    style = Theme.of(context).textTheme.body1;
     return Text(data, style: style);
   }  
 }
@@ -23,7 +37,7 @@ void main() {
     final testString = "test";
 
     final titleWidget = TextClayblock(type: TextClayblockType.title, content: titleString);
-    final testWidget = TestTextStyle(data: testString);
+    final testWidget = TestTitleTextStyle(data: testString);
 
     await tester.pumpWidget(MaterialApp(
       home: Material(
@@ -42,10 +56,20 @@ void main() {
 
   testWidgets("Test of text of message type", (WidgetTester tester) async {
     final message = "My message";
+    final test = "test";
+
+    final bodyWidget = TextClayblock(type: TextClayblockType.body, content: message);
+    final testWidget = TestBody1TextStyle(data: test);
 
     await pumpWithMaterial(
-        tester, TextClayblock(type: TextClayblockType.body, content: message));
+        tester, Column(
+          children: <Widget>[
+            bodyWidget,
+            testWidget
+          ],
+        ));
 
     expect(find.text(message), findsOneWidget);
+    expect(bodyWidget.componentStyle, testWidget.style);
   });
 }
