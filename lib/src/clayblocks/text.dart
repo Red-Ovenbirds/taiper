@@ -16,28 +16,59 @@ class TextClayblock extends Clayblock {
       case TextClayblockType.title:
         this.style.padding = EdgeInsets.only(top: 16, bottom: 4, right: 16, left: 16);
         break;
-      case TextClayblockType.ref:
+      case TextClayblockType.ULItem:
         this.style.padding = EdgeInsets.symmetric(vertical: 16, horizontal: 16);
         break;
     }
   }
 
+  Widget buildBodyText(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.body1);
+    return Text(content, style: componentStyle.first);
+  }
+    
+
+  Widget buildTitleText(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.title);
+    return Text(content, style: componentStyle.first); 
+  }
+
+  Widget buildULItem(BuildContext context) {
+    componentStyle.add(Theme.of(context).textTheme.body1);
+    return Row(mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+        children:
+        [
+          Container(
+            child: Text("•", textAlign: TextAlign.center),
+            width: Theme.of(context).textTheme.body1.fontSize,
+          ),
+          Expanded(
+            child: Text(content, style: componentStyle.first)
+          ),
+        ]
+      );
+  }
+    
+
   @override
   Widget build(BuildContext context) {
+    Widget w;
     switch (type) {
       case TextClayblockType.body:
-        componentStyle.add(Theme.of(context).textTheme.body1);
+        w = buildBodyText(context);
         break;
       case TextClayblockType.title:
-        componentStyle.add(Theme.of(context).textTheme.title);
+        w = buildTitleText(context);
         break;
-      case TextClayblockType.ref:
-        componentStyle.add(Theme.of(context).textTheme.body2);
+      case TextClayblockType.ULItem:
+        w = buildULItem(context);
+        break;
+      default: {
+        w = buildBodyText(context);
+      }
     }
-
-    final displayText = type != TextClayblockType.ref ? content : '\u2022 ' + content;
-
-    return Text(displayText, style: componentStyle[0]);
+    return w;
   }
 }
 
@@ -46,7 +77,7 @@ class TextClayblockFactory extends ClayblockFactory {
   final typesDict = {
     "body": TextClayblockType.body,
     "title": TextClayblockType.title,
-    "ref": TextClayblockType.ref
+    "ulitem": TextClayblockType.ULItem
   };
 
   Clayblock build(String data, String type) =>
@@ -54,5 +85,5 @@ class TextClayblockFactory extends ClayblockFactory {
 } 
 
 enum TextClayblockType {
-  body, title, ref
+  body, title, ULItem
 }
