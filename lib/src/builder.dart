@@ -9,7 +9,7 @@ class TaipaBuilder {
   List<Clayblock> construct(List<ClayblockData> data) =>
     data.map((ClayblockData cbData) {
       final type = cbData.type.split("/")[0];
-      final modifier = cbData.type.contains("/") ? cbData.type.split("/")[0] : null;
+      final modifier = cbData.type.contains("/") ? cbData.type.split("/")[1] : null;
 
       try {
         return factories[type].build(cbData.value, modifier);

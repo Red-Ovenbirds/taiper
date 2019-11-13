@@ -6,6 +6,7 @@ class TextClayblock extends Clayblock {
   
   final TextClayblockType type;
   final String content;
+  TextStyle componentStyle;
   
   TextClayblock({this.type = TextClayblockType.body, this.content}) {
     switch (type) {
@@ -23,22 +24,20 @@ class TextClayblock extends Clayblock {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle textStyle;
-    
     switch (type) {
       case TextClayblockType.body:
-        textStyle = Theme.of(context).textTheme.body1;
+        componentStyle = Theme.of(context).textTheme.body1;
         break;
       case TextClayblockType.title:
-        textStyle = Theme.of(context).textTheme.title;
+        componentStyle = Theme.of(context).textTheme.title;
         break;
       case TextClayblockType.ref:
-        textStyle = Theme.of(context).textTheme.body2;
+        componentStyle = Theme.of(context).textTheme.body2;
     }
 
     final displayText = type != TextClayblockType.ref ? content : '\u2022 ' + content;
 
-    return Text(displayText, style: textStyle);
+    return Text(displayText, style: componentStyle);
   }
 }
 
