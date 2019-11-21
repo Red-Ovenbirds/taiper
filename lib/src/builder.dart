@@ -1,4 +1,5 @@
 import 'package:taiper/src/clayblocks/clayblock.dart';
+import 'package:taiper/src/clayblocks/file.dart';
 import 'package:taiper/src/clayblocks/text.dart';
 import 'package:taiper/src/clayblocks/image.dart';
 
@@ -6,6 +7,7 @@ class TaipaBuilder {
   final factories = {
     "text": TextClayblockFactory(),
     "image": ImageClayblockFactory(),
+    "file": FileClayblockFactory()
   };
 
   List<Clayblock> construct(List<ClayblockData> data) =>

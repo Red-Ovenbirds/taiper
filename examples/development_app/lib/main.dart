@@ -56,7 +56,27 @@ class MyHomePage extends StatelessWidget {
       value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
     ),
     ClayblockData(
-      value:"xdgcfhgvjbknjlmnjkhvgycftdxcfvghjbhknlknjkhvgcftxdcfygvbhjnljbhvgycftfgyihkjj hcfyftgyhiuonjlkbhjgvhcfvhojghcfxghgvjhkjlkvjgcfhgjvhbkjvcbRow (mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [ SizedBox( width: Theme.of(context).textTheme.body1.fontSize, child: Text(, textAlign: TextAlign.center) ), Expanded( child: Text(content) ), ] )gjhklbcvgjhkugvjgvhkvgjhkvjhkivnjhkuvgjhkuvgjhkuvjhkuvgvjhkugvgchjuogjvchvjuhigjvchjuihgvjiuhgvjhuigvjjhuhgvju",
-      type:"text/ulitem" )
+      value:"Unordered list example item",
+      type:"text/ulitem" ),
+    
+    ClayblockData(
+      value:"Unordered list item that has a veeeeeeery long string to show how it does not overflow",
+      type:"text/ulitem" ),
+    
+    ClayblockData(
+      type: "file/image",
+      value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg"
+    ),
+
+    ClayblockData(
+      type: "file/link",
+      value: "https://www.google.com"
+    ),
+
+    ClayblockData(
+      type: "file/sklndkjnf",
+      value: "ksjdnf"
+    )
+
   ];
 }
