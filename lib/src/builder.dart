@@ -9,8 +9,15 @@ class TaipaBuilder {
   };
 
   List<Clayblock> construct(List<ClayblockData> data) =>
-    data.map((ClayblockData clayblockData) {
-      final typeAndModifier = clayblockData.type.split("/");
-      return factories[typeAndModifier[0]].build(clayblockData.value, typeAndModifier[1]);
-    }).toList();
+    data.map((ClayblockData cbData) {
+      final type = cbData.type.split("/")[0];
+      final modifier = cbData.type.contains("/") ? cbData.type.split("/")[1] : null;
+
+      try {
+        return factories[type].build(cbData.value, modifier);
+      } on NoSuchMethodError {
+        print("TaipaBuilder doesn't knows type $type.");
+        return null;
+      }
+    }).where((e) => e != null).toList();
 }

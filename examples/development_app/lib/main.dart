@@ -48,10 +48,6 @@ class MyHomePage extends StatelessWidget {
       type:"text/body",
     ),
     ClayblockData(
-      value:"Gardenghi, G.; Balestra, L.F.;FISIOPATOLOGIA DA HIPOTENSÃO POSTURAL E INTOLERÂNCIA ORTOSTÁTICA.rev pesquisa em fisioterapia. Vol.7 (1), 2017.",
-      type:"text/ref",
-    ),
-    ClayblockData(
       type: "image/local",
       value: "assets/Red-Ovenbird.jpg",
     ),
@@ -59,5 +55,8 @@ class MyHomePage extends StatelessWidget {
       type: "image/web",
       value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
     ),
+    ClayblockData(
+      value:"xdgcfhgvjbknjlmnjkhvgycftdxcfvghjbhknlknjkhvgcftxdcfygvbhjnljbhvgycftfgyihkjj hcfyftgyhiuonjlkbhjgvhcfvhojghcfxghgvjhkjlkvjgcfhgjvhbkjvcbRow (mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start, children: [ SizedBox( width: Theme.of(context).textTheme.body1.fontSize, child: Text(, textAlign: TextAlign.center) ), Expanded( child: Text(content) ), ] )gjhklbcvgjhkugvjgvhkvgjhkvjhkivnjhkuvgjhkuvgjhkuvjhkuvgvjhkugvgchjuogjvchvjuhigjvchjuihgvjiuhgvjhuigvjjhuhgvju",
+      type:"text/ulitem" )
   ];
 }
