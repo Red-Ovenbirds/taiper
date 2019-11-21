@@ -54,7 +54,7 @@ void main() {
         navigatorObservers: [mockObserver],
       ),
     );
-    expect(find.byIcon(Icons.image), findsOneWidget);
+    expect(find.byIcon(Icons.movie), findsOneWidget);
 
     await tester.tap(find.byIcon(Icons.movie));
     await tester.pumpAndSettle(Duration(seconds: 2));
