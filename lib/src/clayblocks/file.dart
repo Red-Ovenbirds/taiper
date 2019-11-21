@@ -13,16 +13,17 @@ class FileClayblock extends Clayblock {
     return Card(
       child: InkWell(
         onTap: () => _launchURL(context),
-              child: Row(
+        child: Row(
           children: <Widget>[
             SizedBox(
                 width: 60,
                 height: 60,
                 child: Icon(icon(),
                     size: 48, color: Theme.of(context).accentColor)),
-            Expanded(child: Padding(
+            Expanded(
+                child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-              child: Text(src),
+              child: Text(src ?? "Erro ao receber link do arquivo..."),
             ))
           ],
         ),
