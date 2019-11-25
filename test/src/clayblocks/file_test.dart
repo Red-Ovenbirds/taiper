@@ -21,48 +21,4 @@ void main() {
     expect(find.text("Erro ao receber link do arquivo..."), findsOneWidget);
     expect(find.byIcon(Icons.insert_drive_file), findsOneWidget);
   });
-
-  testWidgets('Valid src', (WidgetTester tester) async {
-    final clayblock =
-        FileClayblock(src: "https://www.google.com", type: FileType.image);
-    final mockObserver = MockNavigatorObserver();
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Material(child: clayblock),
-        navigatorObservers: [mockObserver],
-      ),
-    );
-
-    expect(find.byIcon(Icons.image), findsOneWidget);
-
-    await tester.tap(find.byIcon(Icons.image));
-    await tester.pumpAndSettle(Duration(seconds: 2));
-
-    //Not conclusive. Could mean AlertDialog is shown or intent being shown.
-    verify(mockObserver.didPush(any, any)).called(equals(1));
-
-    await tester.pumpAndSettle(Duration(seconds: 2));
-    expect(find.byType(AlertDialog), findsNothing);
-  });
-
-  testWidgets('Invalid src', (WidgetTester tester) async {
-    final clayblock = FileClayblock(src: "jknkjn", type: FileType.video);
-    final mockObserver = MockNavigatorObserver();
-    await tester.pumpWidget(
-      MaterialApp(
-        home: Material(child: clayblock),
-        navigatorObservers: [mockObserver],
-      ),
-    );
-    expect(find.byIcon(Icons.movie), findsOneWidget);
-
-    await tester.tap(find.byIcon(Icons.movie));
-    await tester.pumpAndSettle(Duration(seconds: 2));
-
-    verify(mockObserver.didPush(any, any)).called(equals(1));
-    await tester.pumpAndSettle(Duration(seconds: 2));
-
-    //Not conclusive. Can't find AlertDialog.
-    expect(find.byType(AlertDialog), findsOneWidget);
-  });
 }
