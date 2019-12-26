@@ -31,7 +31,7 @@ class ChewiePlayerState extends State<ChewiePlayer> {
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Text(
-            errorMessage,
+            "Não foi possível reproduzir este vídeo.",
             style: TextStyle(color: Colors.white),
           ),
         );

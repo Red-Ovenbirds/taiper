@@ -57,26 +57,43 @@ class MyHomePage extends StatelessWidget {
     ),
     ClayblockData(
       value:"Unordered list example item",
-      type:"text/ulitem" ),
-    
+      type:"text/ulitem",
+    ),
     ClayblockData(
       value:"Unordered list item that has a veeeeeeery long string to show how it does not overflow",
-      type:"text/ulitem" ),
-    
+      type:"text/ulitem",
+    ),
     ClayblockData(
       type: "file/image",
-      value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg"
+      value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
     ),
-
     ClayblockData(
       type: "file/link",
-      value: "https://www.google.com"
+      value: "https://www.google.com",
     ),
-
     ClayblockData(
       type: "file/sklndkjnf",
-      value: "ksjdnf"
-    )
-
+      value: "ksjdnf",
+    ),
+    ClayblockData(
+      type: "video/web",
+      value: "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
+    ),
+    ClayblockData(
+      type: "video/web",
+      value: "https://www.sample-videos.com/video123/flv/240/big_buck_bunny_240p_30mb.flv",
+    ),
+    ClayblockData(
+      type: "video/web",
+      value: "https://www.sample-videos.com/video123/mkv/720/big_buck_bunny_720p_30mb.mkv",
+    ),
+    ClayblockData(
+      type: "video/web",
+      value: "https://www.sample-videos.com/video123/3gp/144/big_buck_bunny_144p_2mb.3gp",
+    ),
+    ClayblockData(
+      type: "video/local",
+      value: "assets/SampleVideo_1280x720_10mb.mkv",
+    ),
   ];
 }

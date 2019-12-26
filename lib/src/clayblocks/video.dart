@@ -31,6 +31,18 @@ class VideoClayblock extends Clayblock {
 
 }
 
+class VideoClayblockFactory extends ClayblockFactory {
+
+  final typesDict = {
+    "local": VideoClayblockType.local,
+    "web": VideoClayblockType.web,
+    "youtube": VideoClayblockType.youtube
+  };
+
+  Clayblock build(String data, String type) =>
+    VideoClayblock(type: typesDict[type], src: data);
+} 
+
 enum VideoClayblockType {
   local, web, youtube
 }
