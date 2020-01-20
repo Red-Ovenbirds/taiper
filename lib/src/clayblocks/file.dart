@@ -5,8 +5,9 @@ import 'package:taiper/taiper.dart';
 class FileClayblock extends Clayblock {
   final FileType type;
   final String src;
+  final String label;
 
-  FileClayblock({@required this.type, @required this.src});
+  FileClayblock({@required this.type, @required this.src, this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class FileClayblock extends Clayblock {
             Expanded(
                 child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
-              child: Text(src ?? "Erro ao receber link do arquivo..."),
+              child: Text(label ?? src ?? "Erro ao receber link do arquivo..."),
             ))
           ],
         ),
@@ -74,11 +75,13 @@ class FileClayblock extends Clayblock {
 enum FileType { document, image, link, music, video }
 
 class FileClayblockFactory extends ClayblockFactory {
-  Clayblock build(String data, String type) {
+  Clayblock build(String data, String type, Map<String, dynamic> props) {
     final fileTypes = FileType.values;
     final fileType = fileTypes.firstWhere(
         (value) => value.toString().split(".").last == type,
         orElse: () => FileType.document);
+    if(props != null && props.containsKey("label"))
+      return FileClayblock(type: fileType, src: data, label: props["label"]);
     return FileClayblock(type: fileType, src: data);
   }
 }

@@ -80,7 +80,7 @@ class TextClayblockFactory extends ClayblockFactory {
     "ulitem": TextClayblockType.ULItem
   };
 
-  Clayblock build(String data, String type) =>
+  Clayblock build(String data, String type, Map<String, dynamic> props) =>
     TextClayblock(type: typesDict[type], content: data);
 } 
 

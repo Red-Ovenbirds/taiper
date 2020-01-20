@@ -7,12 +7,13 @@ abstract class Clayblock extends StatelessWidget{
 }
 
 abstract class ClayblockFactory {
-  Clayblock build(String data, String modifier);
+  Clayblock build(String data, String modifier, Map<String, dynamic> props);
 }
 
 class ClayblockData {
   String type;
   String value;
+  Map<String, dynamic> props;
 
-  ClayblockData({this.type, this.value});
+  ClayblockData({@required this.type, this.value, this.props});
 }
