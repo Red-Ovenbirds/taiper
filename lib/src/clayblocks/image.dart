@@ -57,7 +57,7 @@ class ImageClayblockFactory extends ClayblockFactory {
     "web": ImageClayblockType.web,
   };
 
-  Clayblock build(String data, String type) =>
+  Clayblock build(String data, String type, Map<String, dynamic> props) =>
     ImageClayblock(type: typesDict[type], src: data);
 } 
 
