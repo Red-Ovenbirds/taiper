@@ -5,9 +5,15 @@ import 'package:taiper/taiper.dart';
 class FileClayblock extends Clayblock {
   final FileType type;
   final String src;
-  final String label;
+  String get label {
+    if(this.props != null)
+      return props["label"];
+    return null;
+  }
 
-  FileClayblock({@required this.type, @required this.src, this.label});
+  FileClayblock(
+      {@required this.type, @required this.src, Map<String, dynamic> props})
+      : super(props: props);
 
   @override
   Widget build(BuildContext context) {
@@ -80,8 +86,6 @@ class FileClayblockFactory extends ClayblockFactory {
     final fileType = fileTypes.firstWhere(
         (value) => value.toString().split(".").last == type,
         orElse: () => FileType.document);
-    if(props != null && props.containsKey("label"))
-      return FileClayblock(type: fileType, src: data, label: props["label"]);
-    return FileClayblock(type: fileType, src: data);
+    return FileClayblock(type: fileType, src: data, props: props);
   }
 }
