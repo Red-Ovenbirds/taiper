@@ -48,12 +48,16 @@ class MyHomePageState extends State<MyHomePage> {
 
   void _makeExampleData() {
     LinkedHashMap<String, dynamic> fileImageProps = LinkedHashMap<String, dynamic>();
+    LinkedHashMap<String, dynamic> textProps = LinkedHashMap<String, dynamic>();
     fileImageProps["label"] = "Imagem do Jõao de Barro";
+    textProps["color"] = "0xFFFF0000";
+    textProps["fontSize"] = 30.0;
 
     exampleData = [
       ClayblockData(
         type:"text/title",
         value: "Definição:",
+        props: textProps,
       ),
       ClayblockData(
         type: "text/body",
