@@ -18,7 +18,7 @@ class TaipaBuilder {
       final modifier = cbData.type.contains("/") ? cbData.type.split("/")[1] : null;
 
       try {
-        return factories[type].build(cbData.value, modifier);
+        return factories[type].build(cbData.value, modifier, cbData.props);
       } on NoSuchMethodError {
         print("TaipaBuilder doesn't knows type $type.");
         return null;

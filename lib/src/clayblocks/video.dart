@@ -31,7 +31,7 @@ class VideoClayblockFactory extends ClayblockFactory {
     "youtube": VideoClayblockType.youtube
   };
 
-  Clayblock build(String data, String type) =>
+  Clayblock build(String data, String type, Map<String, dynamic> props) =>
     VideoClayblock(type: typesDict[type], src: data);
 } 
 

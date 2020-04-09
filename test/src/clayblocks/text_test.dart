@@ -52,7 +52,7 @@ void main() {
     ));
 
     expect(find.text(titleString), findsOneWidget);
-    expect(titleWidget.componentStyle[0], testWidget.styles[0]);
+    expect(titleWidget.componentStyle, testWidget.styles.first);
   });
 
   testWidgets("TextClayblock type body", (WidgetTester tester) async {
@@ -74,7 +74,7 @@ void main() {
     ));
 
     expect(find.text(messenge), findsOneWidget);
-    expect(bodyWidget.componentStyle.first, testWidget.styles.first);
+    expect(bodyWidget.componentStyle, testWidget.styles.first);
   });
 
   testWidgets("TextClayblock type ULItem", (WidgetTester tester) async {
@@ -98,14 +98,14 @@ void main() {
 
     expect(find.text(messenge), findsOneWidget);
     expect(find.text(point), findsOneWidget);
-    expect(ulItemWidget.componentStyle.first, testWidget.styles.first);
+    expect(ulItemWidget.componentStyle, testWidget.styles.first);
   });
 
   testWidgets("Text builder for body", (WidgetTester tester) async {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/body"));
+        TextClayblockFactory().build(message, "text/body", {}));
 
     expect(find.text(message), findsOneWidget);
   });
@@ -114,7 +114,7 @@ void main() {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/title"));
+        TextClayblockFactory().build(message, "text/title", {}));
 
     expect(find.text(message), findsOneWidget);
   });
@@ -123,7 +123,7 @@ void main() {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/ulitem"));
+        TextClayblockFactory().build(message, "text/ulitem", {}));
 
   });
 
@@ -149,7 +149,7 @@ void main() {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/body"));
+        TextClayblockFactory().build(message, "text/body", {}));
 
     expect(find.text(message), findsOneWidget);
   });
@@ -158,7 +158,7 @@ void main() {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/title"));
+        TextClayblockFactory().build(message, "text/title", {}));
 
     expect(find.text(message), findsOneWidget);
   });
@@ -167,7 +167,7 @@ void main() {
     final message = "My message";
 
     await pumpWithMaterial(tester,
-        TextClayblockFactory().build(message, "text/ulitem"));
+        TextClayblockFactory().build(message, "text/ulitem", {}));
 
     expect(find.text(message), findsOneWidget);
   });
