@@ -26,7 +26,7 @@ class HeroPhotoViewWrapper extends StatelessWidget {
           children: <Widget>[
             PhotoView(
               imageProvider: imageProvider,
-              loadingChild: loadingChild,
+              loadingBuilder: (context, updateEvent) => loadingChild,
               backgroundDecoration: backgroundDecoration,
               minScale: minScale,
               maxScale: maxScale,
