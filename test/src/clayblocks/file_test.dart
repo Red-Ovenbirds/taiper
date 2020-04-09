@@ -21,4 +21,28 @@ void main() {
     expect(find.text("Erro ao receber link do arquivo..."), findsOneWidget);
     expect(find.byIcon(Icons.insert_drive_file), findsOneWidget);
   });
+
+  testWidgets('Null value', (WidgetTester tester) async {
+    final clayblock = FileClayblock(src: null, type: FileType.link);
+    await pumpWithMaterial(tester, clayblock);
+    expect(find.text("Erro ao receber link do arquivo..."), findsOneWidget);
+  });
+
+  testWidgets('Empty props', (WidgetTester tester) async {
+    final clayblock =
+        FileClayblock(src: "http://google.com", type: FileType.link, props: {});
+    await pumpWithMaterial(tester, clayblock);
+    expect(find.text("http://google.com"), findsOneWidget);
+    expect(find.byIcon(Icons.link), findsOneWidget);
+  });
+
+  testWidgets('Props: label', (WidgetTester tester) async {
+    final clayblock = FileClayblock(
+        src: "http://google.com",
+        type: FileType.link,
+        props: {"label": "Test"});
+    await pumpWithMaterial(tester, clayblock);
+    expect(find.text("Test"), findsOneWidget);
+    expect(find.byIcon(Icons.link), findsOneWidget);
+  });
 }

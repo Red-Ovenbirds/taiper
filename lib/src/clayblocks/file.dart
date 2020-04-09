@@ -6,7 +6,7 @@ class FileClayblock extends Clayblock {
   final FileType type;
   final String src;
   String get label {
-    if(this.props != null)
+    if(this.props != null && this.props.containsKey("label"))
       return props["label"];
     return null;
   }
