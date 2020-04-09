@@ -2,11 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:taiper/src/clayblocks/index.dart';
+import 'package:taiper/src/widgets/image/local_image.dart';
+import 'package:taiper/src/widgets/image/photo_view.dart';
+import 'package:taiper/src/widgets/image/web_image.dart';
 import 'clayblock.dart';
-import 'image/local_image.dart';
-import 'image/web_image.dart';
-import 'image/photo_view.dart';
-
 
 class ImageClayblock extends Clayblock {
   final identifier = "image";

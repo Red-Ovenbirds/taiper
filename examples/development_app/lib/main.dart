@@ -77,23 +77,11 @@ class MyHomePage extends StatelessWidget {
     ),
     ClayblockData(
       type: "video/web",
-      value: "https://www.sample-videos.com/video123/mp4/720/big_buck_bunny_720p_2mb.mp4",
-    ),
-    ClayblockData(
-      type: "video/web",
-      value: "https://www.sample-videos.com/video123/flv/240/big_buck_bunny_240p_30mb.flv",
-    ),
-    ClayblockData(
-      type: "video/web",
-      value: "https://www.sample-videos.com/video123/mkv/720/big_buck_bunny_720p_30mb.mkv",
-    ),
-    ClayblockData(
-      type: "video/web",
-      value: "https://www.sample-videos.com/video123/3gp/144/big_buck_bunny_144p_2mb.3gp",
+      value: "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
     ),
     ClayblockData(
       type: "video/local",
-      value: "assets/SampleVideo_1280x720_10mb.mkv",
+      value: "assets/sample_video.mp4",
     ),
   ];
 }

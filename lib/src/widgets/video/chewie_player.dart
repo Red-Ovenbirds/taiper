@@ -2,14 +2,16 @@ import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import '../../clayblocks/video.dart';
+
 class ChewiePlayer extends StatefulWidget {
-  final VideoPlayerController videoPlayerController;
-  final bool looping;
+  final String src;
+  final VideoClayblockType type;
 
   ChewiePlayer({
-    @required this.videoPlayerController,
-    this.looping,
     Key key,
+    this.src,
+    this.type,
   }) : super(key: key);
 
   @override
@@ -18,21 +20,31 @@ class ChewiePlayer extends StatefulWidget {
 
 class ChewiePlayerState extends State<ChewiePlayer> {
   ChewieController _chewieController;
+  VideoPlayerController _videoController;
 
   @override
   void initState() {
     super.initState();
+    
+    if (widget.type == VideoClayblockType.web) {
+      _videoController = VideoPlayerController.network(
+        widget.src,
+      );
+    } else {
+      _videoController = VideoPlayerController.asset(
+        widget.src,
+      );
+    }
 
     _chewieController = ChewieController(
-      videoPlayerController: widget.videoPlayerController,
+      videoPlayerController: _videoController,
       aspectRatio: 16 / 9,
       autoInitialize: true,
-      looping: widget.looping,
+      looping: false,
       errorBuilder: (context, errorMessage) {
         return Center(
           child: Text(
             "Não foi possível reproduzir este vídeo.",
-            style: TextStyle(color: Colors.white),
           ),
         );
       },
@@ -41,18 +53,15 @@ class ChewiePlayerState extends State<ChewiePlayer> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Chewie(
-        controller: _chewieController,
-      ),
-    );
+    return Padding(padding: const EdgeInsets.all(8.0), child: Chewie(
+            controller: _chewieController,
+          ));
   }
 
   @override
   void dispose() {
     super.dispose();
-    widget.videoPlayerController.dispose();
     _chewieController.dispose();
+    _videoController.dispose();
   }
 }
