@@ -22,3 +22,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/Red-Ovenbird.jpg
+    - assets/sample_video.mp4

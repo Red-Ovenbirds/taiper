@@ -47,7 +47,8 @@ class MyHomePageState extends State<MyHomePage> {
   }
 
   void _makeExampleData() {
-    LinkedHashMap<String, dynamic> fileImageProps = LinkedHashMap<String, dynamic>();
+    LinkedHashMap<String, dynamic> fileImageProps =
+        LinkedHashMap<String, dynamic>();
     LinkedHashMap<String, dynamic> textProps = LinkedHashMap<String, dynamic>();
     fileImageProps["label"] = "Imagem do Jõao de Barro";
     textProps["color"] = "0xFFFF0000";
@@ -55,21 +56,23 @@ class MyHomePageState extends State<MyHomePage> {
 
     exampleData = [
       ClayblockData(
-        type:"text/title",
+        type: "text/title",
         value: "Definição:",
         props: textProps,
       ),
       ClayblockData(
         type: "text/body",
-        value: "A hipotensão ortostática ocorre com a mudança de posição, particularmente pela manhã ou após refeições copiosas, exercício físico e banho quente, situações que levam a uma redistribuição desfavorável do volume sangüíneo.",
+        value:
+            "A hipotensão ortostática ocorre com a mudança de posição, particularmente pela manhã ou após refeições copiosas, exercício físico e banho quente, situações que levam a uma redistribuição desfavorável do volume sangüíneo.",
       ),
       ClayblockData(
-        type:"text/title",
+        type: "text/title",
         value: "Sinais e sintomas:",
       ),
       ClayblockData(
-        type:"text/body",
-        value: "Tontura\nSíncope\nQuedas\nDistúrbios visuais\nDéficits neurológicos focais\nCervicalgia com irradiação para os ombros\nclaudicação intermitente\nangina de peito\nIAM",
+        type: "text/body",
+        value:
+            "Tontura\nSíncope\nQuedas\nDistúrbios visuais\nDéficits neurológicos focais\nCervicalgia com irradiação para os ombros\nclaudicação intermitente\nangina de peito\nIAM",
       ),
       ClayblockData(
         type: "image/local",
@@ -77,19 +80,22 @@ class MyHomePageState extends State<MyHomePage> {
       ),
       ClayblockData(
         type: "image/web",
-        value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
+        value:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
       ),
       ClayblockData(
-        type:"text/ulitem",
-        value:"Unordered list example item",
+        type: "text/ulitem",
+        value: "Unordered list example item",
       ),
       ClayblockData(
-        type:"text/ulitem",
-        value:"Unordered list item that has a veeeeeeery long string to show how it does not overflow",
+        type: "text/ulitem",
+        value:
+            "Unordered list item that has a veeeeeeery long string to show how it does not overflow",
       ),
       ClayblockData(
         type: "file/image",
-        value: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
+        value:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg/250px-Flickr_-_Dario_Sanches_-_JO%C3%83O-DE-BARRO_%28Furnarius_rufus%29_%285%29.jpg",
         props: fileImageProps,
       ),
       ClayblockData(
@@ -100,7 +106,15 @@ class MyHomePageState extends State<MyHomePage> {
         type: "file/sklndkjnf",
         value: "ksjdnf",
       ),
+      ClayblockData(
+        type: "video/web",
+        value:
+            "https://file-examples.com/wp-content/uploads/2017/04/file_example_MP4_480_1_5MG.mp4",
+      ),
+      ClayblockData(
+        type: "video/local",
+        value: "assets/sample_video.mp4",
+      ),
     ];
   }
-
 }

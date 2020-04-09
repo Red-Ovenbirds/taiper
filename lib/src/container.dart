@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:taiper/src/clayblocks/index.dart';
 
 class TaiperContainer extends StatelessWidget {
-  TaiperContainer(this.clayblocks);
   final List<Clayblock> clayblocks;
+  TaiperContainer(this.clayblocks);
 
   @override
   Widget build(BuildContext context) {
