@@ -13,12 +13,12 @@ class TextClayblock extends Clayblock {
     );
   }
   double get fontSize {
-    if(props != null)
+    if(props != null && props["fontSize"] != null)
       return props["fontSize"];
     return null;
   }
   Color get color {
-    if(props != null)
+    if(props != null && props["fontSize"] != null)
       return Color(_hexaToInt(props["color"]));
     return null;
   }
