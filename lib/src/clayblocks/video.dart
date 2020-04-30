@@ -10,15 +10,12 @@ class VideoClayblock extends Clayblock {
 
   VideoClayblock({
     @required this.src,
-    this.type = VideoClayblockType.youtube,
+    this.type = VideoClayblockType.web,
   });
   
   @override
   Widget build(BuildContext context) {
-    if (type == VideoClayblockType.local || type == VideoClayblockType.web) {
-      return ChewiePlayer(src: src, type: type);
-    }
-    return null;
+    return ChewiePlayer(src: src, type: type);
   }
 
 }
@@ -27,8 +24,7 @@ class VideoClayblockFactory extends ClayblockFactory {
 
   final typesDict = {
     "local": VideoClayblockType.local,
-    "web": VideoClayblockType.web,
-    "youtube": VideoClayblockType.youtube
+    "web": VideoClayblockType.web
   };
 
   Clayblock build(String data, String type, Map<String, dynamic> props) =>
@@ -36,5 +32,5 @@ class VideoClayblockFactory extends ClayblockFactory {
 } 
 
 enum VideoClayblockType {
-  local, web, youtube
+  local, web
 }
